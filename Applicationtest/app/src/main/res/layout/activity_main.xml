@@ -1,149 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="409dp"
-    android:layout_height="729dp"
-    android:background="#001D1919"
     android:orientation="vertical"
-    tools:layout_editor_absoluteX="1dp"
-    tools:layout_editor_absoluteY="1dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button
+            android:text="One,One"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <Button
+            android:text="One,Two"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="One,Three"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <Button
+            android:text="One,Four"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent">
 
-        <TextView
-
-            android:layout_width="wrap_content"
+        <Button
+            android:text="Two,One"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="One,One" />
+            android:layout_width="wrap_content" />
 
-        <TextView
-
-            android:layout_width="wrap_content"
+        <Button
+            android:text="Two,Two"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="One,Two" />
-
-        <TextView
-
             android:layout_width="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Two,Three"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="One,Three" />
+            android:layout_width="wrap_content" />
 
-        <TextView
+        <Button
+            android:text="Two,Four"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <Button
+            android:text="Three,One"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
+        <Button
+            android:text="Three,Two"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="Three,Three"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="One,Four" />
+            android:layout_width="wrap_content" />
+
+        <Button
+            android:text="Three,Four"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent">
 
-        <TextView
-
-            android:layout_width="wrap_content"
+        <Button
+            android:text="Four,One"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Two,One" />
+            android:layout_width="wrap_content" />
 
-        <TextView
-
-            android:layout_width="wrap_content"
+        <Button
+            android:text="Four,Two"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Two,Two" />
-
-        <TextView
-
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Two,Three" />
+            android:layout_weight="1" />
 
-        <TextView
-
-            android:layout_width="wrap_content"
+        <Button
+            android:text="Four,Three"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Two,Four" />
+            android:layout_width="wrap_content" />
+
+        <Button
+            android:text="Four,Four"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.6"
-            android:text="Three,One" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.6"
-            android:text="Three,Two" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.6"
-            android:text="Three,Three" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.6"
-            android:text="Three,Four" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Four,One" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.8"
-            android:text="Four,Two" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Four,Three" />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Four,Four" />
-    </LinearLayout>
-
 </LinearLayout>
