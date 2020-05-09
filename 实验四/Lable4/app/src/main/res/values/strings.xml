@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Lable4</string>
+    <string name="action_settings">Settings</string>
+    <string name="textview">http://www.baidu.com</string>
+    <string name="button">搜索</string>
+</resources>
