@@ -42,3 +42,85 @@ private String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,NotePad.Notes.
 private int[] viewIDs = { R.id.text1,R.id.text2 };
 
   ```
+
+### 效果图
+<image src="https://github.com/xiezhenqun/Android/blob/master/NotePad-master/screen/time.png">
+ 
+ ## 搜索功能
+ 搜索的话是以搜索笔记的标题，采用了模糊搜索，应用SearchView控件
+ 增加一个布局文件listview
+ 
+ ```
+ 
+ <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.SearchView>
+
+    <ListView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
+
+```
+
+在NodeList.java中创建一个SeachView函数，基本思想是新创建一个Cursor，在通过SeacrhView搜索的字段，
+然后在数据库中进行模糊搜索进行匹配，在ListView中显示，最后在onCreate()中调用
+
+```
+private void SearchView(){
+        searchView=findViewById(R.id.sv);
+        
+        searchView.onActionViewExpanded();
+        
+        searchView.setQueryHint("搜索笔记");
+        
+        searchView.setSubmitButtonEnabled(true);
+        
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+            
+            @Override
+            public boolean onQueryTextChange(String s) {
+                if(!s.equals("")){
+                    String selection=NotePad.Notes.COLUMN_NAME_TITLE+" GLOB '*"+s+"*'";//query selection condition
+                    updatecursor = getContentResolver().query(
+                            getIntent().getData(),            
+                            PROJECTION,                      
+                            selection,                             
+                            null,                             
+                            NotePad.Notes.DEFAULT_SORT_ORDER  
+                    );
+                }
+               else {
+                    updatecursor = getContentResolver().query(
+                            getIntent().getData(),            
+                            PROJECTION,                       
+                            null,                             
+                            null,                             
+                            NotePad.Notes.DEFAULT_SORT_ORDER  
+                    );
+                }
+                
+                adapter.swapCursor(updatecursor);
+               
+                return false;
+            }
+        });
+    }
+
+```
