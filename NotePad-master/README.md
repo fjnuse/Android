@@ -124,3 +124,6 @@ private void SearchView(){
     }
 
 ```
+
+### 效果图
+<image src="https://github.com/xiezhenqun/Android/blob/master/NotePad-master/screen/SB~V%25XM%7DMHSRZPQIYIZU%5D~9.png">
