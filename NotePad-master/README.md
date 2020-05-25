@@ -28,8 +28,7 @@
      
   ```
   
-  最后在NoteList.java的PROJECTION数组中增加对时间的描述，并在SimpleCursorAdapter中的参数
-  viewsIDs和dataColumns增加对时间的描述，就可显示出来
+  最后在NoteList.java的PROJECTION数组中增加对时间的描述，并对viewsIDs和dataColumns增加对时间的描述，就可显示出来
   
   ```
   
@@ -38,8 +37,8 @@
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
     };
-private String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;
-private int[] viewIDs = { R.id.text1,R.id.text2 };
+ String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;
+ int[] viewIDs = { R.id.text1,R.id.text2 };
 
   ```
 
