@@ -71,17 +71,12 @@ public class NotesList extends AppCompatActivity implements LoaderManager.Loader
     };
 
     /** The index of the title column */
+    private SimpleCursorAdapter adapter;
+    private Cursor updatecursor;
     private static final int COLUMN_INDEX_TITLE = 1;
     private ListView listView;
     private SearchView searchView;
-    private SimpleCursorAdapter adapter;
-    // The names of the cursor columns to display in the view, initialized to the title column
-    private String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;
 
-    // The view IDs that will display the cursor columns, initialized to the TextView in
-    // noteslist_item.xml
-    private int[] viewIDs = { R.id.text1,R.id.text2 };
-    private Cursor updatecursor;
     /**
      * onCreate is called when Android starts this Activity from scratch.
      */
@@ -135,8 +130,8 @@ public class NotesList extends AppCompatActivity implements LoaderManager.Loader
          * The SimpleCursorAdapter maps them in ascending order to determine where each column
          * value will appear in the ListView.
          */
-
-
+       String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE} ;
+        int[] viewIDs = { R.id.text1,R.id.text2 };
 
         // Creates the backing adapter for the ListView.
         adapter
@@ -515,20 +510,7 @@ public class NotesList extends AppCompatActivity implements LoaderManager.Loader
         }
     }
 
-    @Override
-    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new CursorLoader(this,getIntent().getData() , null, null, null, null);
-    }
 
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        adapter.swapCursor(data);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> loader) {
-        adapter.swapCursor(null);
-    }
 
 
     /**
@@ -543,7 +525,7 @@ public class NotesList extends AppCompatActivity implements LoaderManager.Loader
      * @param id The row ID of the clicked item
      */
     //@Override
-  /*  protected void onListItemClick(ListView l, View v, int position, long id) {
+    protected void onListItemClick(ListView l, View v, int position, long id) {
 
         // Constructs a new URI from the incoming URI and the row ID
         Uri uri = ContentUris.withAppendedId(getIntent().getData(), id);
@@ -563,5 +545,19 @@ public class NotesList extends AppCompatActivity implements LoaderManager.Loader
             // Intent's data is the note ID URI. The effect is to call NoteEdit.
             startActivity(new Intent(Intent.ACTION_EDIT, uri));
         }
-    }*/
+    }
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return new CursorLoader(this,getIntent().getData() , null, null, null, null);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        adapter.swapCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        adapter.swapCursor(null);
+    }
 }
