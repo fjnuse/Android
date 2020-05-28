@@ -18,7 +18,7 @@
    ```
       
      
-  然后在在NodeEditor.java中的updateNode()这个函数修改时间，并将时间格式化存入数据库
+  然后在在NodeEditor.java中的updateNode()这个函数修改时间，获取当前系统时间，将时间格式化成日月年小时分钟秒并将时间格式化存入数据库
   
   ```
      Date nowTime = new Date(System.currentTimeMillis());
@@ -74,7 +74,7 @@
 ```
 
 在NodeList.java中创建一个SeachView函数，基本思想是新创建一个Cursor，在通过SeacrhView搜索的字段，
-然后在数据库中进行模糊搜索进行匹配，在ListView中显示，最后在onCreate()中调用
+然后在数据库中进行模糊搜索进行匹配，如果输入的标题有部分被包含记事的标题里就会在在ListView中显示，最后在onCreate()中调用
 
 ```
 private void SearchView(){
