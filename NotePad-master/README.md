@@ -1,6 +1,6 @@
 # 笔记本
 ## 时间戳
- 在noteslist_item布局里添加text2用来显示时间
+ 在noteslist_item布局里添加text2用来显示时间，布局文件是使用线性布局
  
  ```
  <TextView
@@ -18,7 +18,7 @@
    ```
       
      
-  然后在在NodeEditor.java中的updateNode()这个函数修改时间，获取当前系统时间，将时间格式化成日月年小时分钟秒并将时间格式化存入数据库
+  然后在在NodeEditor.java中的updateNode()这个函数添加时间，首先用Date获取当前系统时间，然后用SimpleDateFormat将时间格式化成日月年小时分钟秒，不然显示出来的是一串数字，再将时间转换成String类型赋值给NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE并存入数据库
   
   ```
      Date nowTime = new Date(System.currentTimeMillis());
@@ -28,7 +28,7 @@
      
   ```
   
-  最后在NoteList.java的PROJECTION数组中增加对时间的描述，并对viewsIDs和dataColumns增加对时间的描述，就可显示出来
+  最后在NoteList.java的PROJECTION数组中增加对时间的描述，增加 NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE，并对viewsIDs增加对时间的描述NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE，然后将text2加进viewIDs，控件就可显示出来
   
   ```
   
@@ -46,7 +46,7 @@
 <image src="https://github.com/xiezhenqun/Android/blob/master/NotePad-master/screen/time.png">
  
  ## 搜索功能
- 搜索的话是以搜索笔记的标题，采用了模糊搜索，应用SearchView控件
+ 搜索的话是以搜索笔记的标题进行匹配，采用了模糊搜索，使用SearchView控件
  增加一个布局文件listview
  
  ```
@@ -74,7 +74,7 @@
 ```
 
 在NodeList.java中创建一个SeachView函数，基本思想是新创建一个Cursor，在通过SeacrhView搜索的字段，
-然后在数据库中进行模糊搜索进行匹配，如果输入的标题有部分被包含记事的标题里就会在在ListView中显示，最后在onCreate()中调用
+然后在数据库中进行模糊搜索进行匹配，如果输入的标题有部分被包含记事的标题里就会显示，最后在onCreate()中调用
 
 ```
 private void SearchView(){
@@ -96,7 +96,7 @@ private void SearchView(){
             @Override
             public boolean onQueryTextChange(String s) {
                 if(!s.equals("")){
-                    String selection=NotePad.Notes.COLUMN_NAME_TITLE+" GLOB '*"+s+"*'";//query selection condition
+                    String selection=NotePad.Notes.COLUMN_NAME_TITLE+" GLOB '*"+s+"*'";
                     updatecursor = getContentResolver().query(
                             getIntent().getData(),            
                             PROJECTION,                      
