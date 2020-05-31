@@ -73,8 +73,7 @@
 
 ```
 
-在NodeList.java中创建一个SeachView函数，基本思想是新创建一个Cursor，在通过SeacrhView搜索的字段，
-然后在数据库中进行模糊搜索进行匹配，如果输入的标题有部分被包含记事的标题里就会显示，最后在onCreate()中调用
+在NodeList.java中创建一个SeachView函数，基本思想是新创建一个Cursor，在通过SeacrhView搜索的字段，假如输入的内容不等于空，则搜索匹配包含输入字符的日记，否则显示全部然后在数据库中进行模糊搜索进行匹配，如果输入的标题有部分被包含记事的标题里就会显示，最后在onCreate()中调用
 
 ```
 private void SearchView(){
