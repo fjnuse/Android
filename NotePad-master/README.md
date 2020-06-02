@@ -46,7 +46,7 @@
 <image src="https://github.com/xiezhenqun/Android/blob/master/NotePad-master/screen/time.png">
  
  ## 搜索功能
- 搜索的话是以搜索笔记的标题进行匹配，采用了模糊搜索，使用SearchView控件
+ 搜索的话是以搜索笔记的标题进行匹配，采用了模糊搜索，使用SearchView控件，不需要使用按钮就可以进行搜索
  增加一个布局文件listview
  
  ```
@@ -73,7 +73,7 @@
 
 ```
 
-在NodeList.java中创建一个SeachView函数，基本思想是新创建一个Cursor，在通过SeacrhView搜索的字段，然后在数据库中进行模糊搜索进行匹配，如果输入的标题有部分被包含记事的标题里就会显示，最后在onCreate()中调用
+在NodeList.java中创建一个SeachView函数，设置setSubmitButtonEnabled为true，就实现了可以不按按钮进行搜索，基本思想是新创建一个Cursor，在通过SeacrhView搜索的字段，然后在数据库中进行模糊搜索进行匹配，如果输入的标题有部分被包含记事的标题里就会显示，最后在onCreate()中调用
 
 ```
 private void SearchView(){
