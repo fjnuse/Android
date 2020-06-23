@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--  This is our one standard application action (creating a new note). -->
+    <item android:id="@+id/menu_add"
+          android:icon="@drawable/ic_menu_compose"
+          android:title="@string/menu_add"
+          android:alphabeticShortcut='a'
+          app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_voicesearch"
+        android:icon="@drawable/voice"
+        android:title="语音搜索"
+        app:showAsAction="always" />
+    <!--  If there is currently data in the clipboard, this adds a PASTE menu item to the menu
+          so that the user can paste in the data.. -->
+    <item android:id="@+id/menu_paste"
+          android:icon="@drawable/ic_menu_compose"
+          android:title="@string/menu_paste"
+          android:alphabeticShortcut='p' />
+
+    <item
+        android:title="改变颜色">
+        <menu>
+            <item android:id="@+id/backgroundcolor"
+                android:title="背景颜色"></item>
+            <item android:id="@+id/textcolor"
+                android:title="字体颜色"></item>
+
+        </menu>
+    </item>
+
+</menu>

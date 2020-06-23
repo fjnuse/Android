@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_save"
+          android:icon="@drawable/ic_menu_save"
+          android:alphabeticShortcut='s'
+          android:title="@string/menu_save"
+          app:showAsAction="always|withText" />
+    <item android:id="@+id/menu_revert"
+          android:icon="@drawable/ic_menu_revert"
+          android:title="@string/menu_revert"
+        app:showAsAction="always|withText"
+        />
+    <item android:id="@+id/menu_delete"
+          android:icon="@drawable/ic_menu_delete"
+          android:title="@string/menu_delete"
+          app:showAsAction="always|withText" />
+    <item
+        android:title="改变颜色">
+        <menu>
+            <item android:id="@+id/backgroundcolor"
+                android:title="背景颜色"></item>
+            <item android:id="@+id/textcolor"
+                android:title="字体颜色"></item>
+
+        </menu>
+    </item>
+    <item android:title="插入图片"
+        android:icon="@android:drawable/ic_menu_gallery"
+        app:showAsAction="always|withText">
+        <menu>
+            <item
+                android:title="相册"
+                android:icon="@android:drawable/ic_menu_gallery"
+                android:id="@+id/insert_album">
+            </item>
+            <item
+                android:id="@+id/insert_camera"
+                android:icon="@android:drawable/ic_menu_camera"
+                android:title="拍照">
+            </item>
+        </menu>
+    </item>
+
+</menu>
